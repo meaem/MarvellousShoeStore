@@ -13,10 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/invalid_password"
-        android:textStyle="bold"
+        android:text="@string/email"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
+        style="@style/font_style" />
 
 
     <TextView
@@ -27,7 +27,8 @@
         android:text="@string/password_label"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword" />
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
+        style="@style/font_style"/>
 
     <Button
         android:id="@+id/login_btn"
@@ -72,7 +73,8 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -89,6 +91,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
+        app:layout_constraintVertical_chainStyle="spread"
+        android:autofillHints="emailAddress" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
