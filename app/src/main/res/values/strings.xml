@@ -17,4 +17,8 @@
     <string name="password_label">Password</string>
     <string name="email_label">Email</string>
     <string name="logo_description">logo_description</string>
+    <string name="welcome_to_our_shoe_store">Welcome to our Shoe Store</string>
+    <string name="go">Go</string>
+    <string name="instructions_content">Please follow the following instructions to enjoy a good buying experience</string>
+    <string name="instructions_label">Instructions</string>
 </resources>

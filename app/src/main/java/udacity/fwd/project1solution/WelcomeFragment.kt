@@ -8,33 +8,31 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import udacity.fwd.project1solution.databinding.FragmentLoginBinding
-
+import udacity.fwd.project1solution.databinding.FragmentWelcomeBinding
 
 /**
  * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
+ * Use the [WelcomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class LoginFragment : Fragment() {
+class WelcomeFragment : Fragment() {
 
-//lateinit var binding :LoginF
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-    val binding = DataBindingUtil.inflate<FragmentLoginBinding>(
-        inflater, R.layout.fragment_login, container, false
-    )
-
-    binding.loginBtn.setOnClickListener {
-        findNavController().navigate(LoginFragmentDirections.actionLoginFragment2ToWelcomeFragment())
-    }
-
-
+    ): View? {
         // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_login, container, false)
-    return binding.root
-    }
+       // return inflater.inflate
+        val binding = DataBindingUtil.inflate<FragmentWelcomeBinding>(
+            inflater, R.layout.fragment_welcome, container, false
+        )
 
+        binding.proceedBtn.setOnClickListener {
+            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment())
+
+        }
+        return binding.root
+    }
 
 }
