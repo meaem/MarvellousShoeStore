@@ -21,4 +21,12 @@
     <string name="go">Go</string>
     <string name="instructions_content">Please follow the following instructions to enjoy a good buying experience</string>
     <string name="instructions_label">Instructions</string>
+    <string name="btn_details_desc">Go to details screen</string>
+    <string name="shoes_list">Shoes list</string>
+    <string name="save_btn">Save</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="description_lbl">Description</string>
+    <string name="shoe_size_lbl">Shoe Size</string>
+    <string name="company_lbl">Company</string>
+    <string name="shoe_name_lbl">Shoe Name</string>
 </resources>
