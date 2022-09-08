@@ -20,27 +20,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:text="@string/shoe_name_lbl"
+            app:layout_constraintBottom_toTopOf="@+id/shoeNameText"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.49" />
 
         <EditText
             android:id="@+id/shoeNameText"
             android:layout_width="379dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:ems="10"
             android:inputType="textPersonName"
-            app:layout_constraintStart_toStartOf="@+id/shoeNameTv"
+            app:layout_constraintBottom_toTopOf="@+id/companyNameTv"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameTv" />
 
         <EditText
             android:id="@+id/companyNameText"
             android:layout_width="379dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:ems="10"
             android:inputType="textPersonName"
-            app:layout_constraintStart_toStartOf="@+id/companyNameTv"
+            app:layout_constraintBottom_toTopOf="@+id/shoeSizeTv"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/companyNameTv" />
 
         <TextView
@@ -49,8 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:text="@string/company_lbl"
+            app:layout_constraintBottom_toTopOf="@+id/companyNameText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameText" />
 
@@ -58,9 +63,11 @@
             android:id="@+id/shoeSizeText"
             android:layout_width="379dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:ems="10"
             android:inputType="number"
-            app:layout_constraintStart_toStartOf="@+id/shoeSizeTv"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeSizeTv" />
 
         <TextView
@@ -69,24 +76,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:text="@string/shoe_size_lbl"
+            app:layout_constraintBottom_toTopOf="@+id/shoeSizeText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/companyNameText" />
 
         <EditText
             android:id="@+id/shoeDescText"
-            android:layout_width="0dp"
+            android:layout_width="456dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
-            app:layout_constraintBottom_toBottomOf="@+id/shoeSizeText"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/shoeDescTv"
             app:layout_constraintTop_toBottomOf="@+id/shoeDescTv" />
 
         <TextView
@@ -94,27 +99,20 @@
             style="@style/font_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:text="@string/description_lbl"
-            app:layout_constraintStart_toEndOf="@+id/shoeNameText"
+            app:layout_constraintStart_toStartOf="@+id/shoeDescText"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="379dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shoeSizeText"
-            app:layout_constraintVertical_bias="1.0">
+            >
 
             <Button
                 android:id="@+id/saveBtn"
@@ -125,14 +123,13 @@
                 android:text="@string/save_btn" />
 
             <Button
-            android:id="@+id/cancelBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:id="@+id/cancelBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:layout_marginEnd="8dp"
-            android:text="@string/cancel_btn" />
+                android:layout_marginEnd="8dp"
+                android:text="@string/cancel_btn" />
         </LinearLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
