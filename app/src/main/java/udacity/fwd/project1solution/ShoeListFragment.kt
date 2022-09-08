@@ -1,9 +1,7 @@
 package udacity.fwd.project1solution
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -35,8 +33,30 @@ class ShoeListFragment : Fragment() {
 
             findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToDetailsFragment())
         }
+        setHasOptionsMenu(true)
         return binding.root
     }
 
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+////        val inflater: MenuInflater = menuInflater
+//        inflater.inflate(R.menu.game_menu, menu)
+//        return true
+//    }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.list_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.menu_logout -> {
+                findNavController().navigate(ShoeListFragmentDirections.actionGraphShoeListFragmentToGraphLoginFragment())
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }
