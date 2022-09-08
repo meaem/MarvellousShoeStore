@@ -3,47 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/loginFragment2">
+    app:startDestination="@id/graph_loginFragment">
 
 
     <fragment
-        android:id="@+id/loginFragment2"
+        android:id="@+id/graph_loginFragment"
         android:name="udacity.fwd.project1solution.LoginFragment"
         android:label="@string/login_fragment_title"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment2_to_welcomeFragment"
-            app:destination="@id/welcomeFragment"
-            app:popUpTo="@id/loginFragment2"
+            app:destination="@id/graph_welcomeFragment"
+            app:popUpTo="@id/graph_loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/welcomeFragment"
+        android:id="@+id/graph_welcomeFragment"
         android:name="udacity.fwd.project1solution.WelcomeFragment"
         android:label="@string/welcome_fragment_title">
         <action
             android:id="@+id/action_welcomeFragment_to_instructionsFragment"
-            app:destination="@id/instructionsFragment"
-            app:popUpTo="@id/welcomeFragment"
+            app:destination="@id/graph_instructionsFragment"
+            app:popUpTo="@id/graph_welcomeFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/instructionsFragment"
+        android:id="@+id/graph_instructionsFragment"
         android:name="udacity.fwd.project1solution.InstructionsFragment"
         android:label="@string/instructions_fragment_title">
         <action
             android:id="@+id/action_instructionsFragment_to_shoeListFragment"
-            app:destination="@id/shoeListFragment"
-            app:popUpTo="@id/instructionsFragment"
+            app:destination="@id/graph_shoeListFragment"
+            app:popUpTo="@id/graph_instructionsFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/shoeListFragment"
+        android:id="@+id/graph_shoeListFragment"
         android:name="udacity.fwd.project1solution.ShoeListFragment"
         android:label="@string/shoe_list_fragment_title">
         <action
             android:id="@+id/action_shoeListFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/graph_detailsFragment" />
         <argument
             android:name="sName"
             android:defaultValue="null"
@@ -65,14 +65,14 @@
             app:nullable="true" />
     </fragment>
     <fragment
-        android:id="@+id/detailsFragment"
+        android:id="@+id/graph_detailsFragment"
         android:name="udacity.fwd.project1solution.DetailsFragment"
         android:label="@string/details_fragment_title"
         tools:layout="@layout/fragment_details">
         <action
             android:id="@+id/action_detailsFragment_to_shoeListFragment"
-            app:destination="@id/shoeListFragment"
-            app:popUpTo="@id/shoeListFragment"
+            app:destination="@id/graph_shoeListFragment"
+            app:popUpTo="@id/graph_shoeListFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>
