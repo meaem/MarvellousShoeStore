@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.graph_loginFragment,
                 R.id.graph_welcomeFragment,
-                R.id.graph_instructionsFragment, R.id.graph_shoeListFragment
+                R.id.graph_shoeListFragment
             )
         )
 //        val navController = this.findNavController(R.id.myNavHostFragment)

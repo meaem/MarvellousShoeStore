@@ -23,7 +23,7 @@
     <string name="cancel_btn">Cancel</string>
     <string name="description_lbl">Description</string>
     <string name="shoe_size_lbl">Shoe Size</string>
-    <string name="company_lbl">Company</string>
+    <string name="shoe_company_lbl">Company</string>
     <string name="shoe_name_lbl">Shoe Name</string>
     <string name="login_fragment_title">Login</string>
     <string name="welcome_fragment_title">Welcome</string>
@@ -32,5 +32,9 @@
     <string name="details_fragment_title">Shoe Details</string>
     <string name="password_hint">123456</string>
     <string name="email_hint">user@example.com</string>
+    <!--    <string name="incorrect_size_error">valid sizes between %d and %d only</string>-->
+    <!--    <string name="can_not_be_blank_error">can not be blank</string>-->
+    <string name="no_shoes_currently_in_the_store">No shoes currently in the store. Please Click the add button to add shoes</string>
+    <string name="read_instructions">Read Instructions</string>
 
 </resources>

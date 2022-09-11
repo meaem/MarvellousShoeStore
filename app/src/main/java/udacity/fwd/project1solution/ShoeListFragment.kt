@@ -2,11 +2,16 @@ package udacity.fwd.project1solution
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import timber.log.Timber
 import udacity.fwd.project1solution.databinding.FragmentShoeListBinding
+import udacity.fwd.project1solution.models.Shoe
+import udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel
 
 /*
  * A simple [Fragment] subclass.
@@ -15,11 +20,11 @@ import udacity.fwd.project1solution.databinding.FragmentShoeListBinding
  */
 class ShoeListFragment : Fragment() {
 
-
+    val viewModel by activityViewModels<ShoeViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentShoeListBinding>(
             inflater,
@@ -28,20 +33,48 @@ class ShoeListFragment : Fragment() {
             false
         )
 
+        binding.viewModel = viewModel
         binding.goDetailsFab.setOnClickListener {
-            Toast.makeText(activity, "Hello", Toast.LENGTH_SHORT).show()
-
             findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToDetailsFragment())
         }
+
+        viewModel.shoeList.observe(viewLifecycleOwner, Observer {
+            addShoesToView(binding, it)
+        })
+
+
         setHasOptionsMenu(true)
         return binding.root
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-////        val inflater: MenuInflater = menuInflater
-//        inflater.inflate(R.menu.game_menu, menu)
-//        return true
-//    }
+    private fun addShoesToView(binding: FragmentShoeListBinding, list: List<Shoe>) {
+        Timber.i(list.toString())
+
+        binding.apply {
+//            listLayout.removeAllViews()
+            for (shoe in list) {
+//            if (list.isNotEmpty()) {
+//                val shoe = list.last()
+                val tv =
+                    View.inflate(this@ShoeListFragment.activity, R.layout.list_item, null)
+                tv.findViewById<TextView>(R.id.name_textView).text = shoe.name
+                tv.findViewById<TextView>(R.id.company_textView).text = shoe.company
+                tv.findViewById<TextView>(R.id.size_textView).text = shoe.size.toString()
+//                val tv_binding = DataBindingUtil.inflate<FragmentShoeListBinding>(
+//                    inflater,
+//                    R.layout.fragment_shoe_list,
+//                    container,
+//                    false
+//                )
+
+//                tv.text = shoe.name
+                listLayout.addView(tv)
+//            }
+            }
+        }
+
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)

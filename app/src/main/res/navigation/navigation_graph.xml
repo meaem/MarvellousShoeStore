@@ -24,8 +24,7 @@
         <action
             android:id="@+id/action_welcomeFragment_to_instructionsFragment"
             app:destination="@id/graph_instructionsFragment"
-            app:popUpTo="@id/graph_welcomeFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/graph_instructionsFragment"
@@ -34,7 +33,7 @@
         <action
             android:id="@+id/action_instructionsFragment_to_shoeListFragment"
             app:destination="@id/graph_shoeListFragment"
-            app:popUpTo="@id/graph_instructionsFragment"
+            app:popUpTo="@id/graph_welcomeFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -44,25 +43,6 @@
         <action
             android:id="@+id/action_shoeListFragment_to_detailsFragment"
             app:destination="@id/graph_detailsFragment" />
-        <argument
-            android:name="sName"
-            android:defaultValue="null"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="sCompany"
-            android:defaultValue="null"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="sSize"
-            android:defaultValue="0"
-            app:argType="integer" />
-        <argument
-            android:name="sDesc"
-            android:defaultValue="sss"
-            app:argType="string"
-            app:nullable="true" />
         <action
             android:id="@+id/action_graph_shoeListFragment_to_graph_loginFragment"
             app:destination="@id/graph_loginFragment"

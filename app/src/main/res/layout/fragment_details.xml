@@ -5,6 +5,12 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel" />
+        <!--        <variable-->
+        <!--            name="shoe"-->
+        <!--            type="udacity.fwd.project1solution.models.Shoe" />-->
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,6 +38,7 @@
             android:layout_marginTop="9dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@={viewModel.shoeName}"
             app:layout_constraintStart_toStartOf="@+id/shoeNameTv"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameTv" />
 
@@ -41,6 +48,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@={viewModel.comapnyName}"
             app:layout_constraintStart_toStartOf="@+id/companyNameTv"
             app:layout_constraintTop_toBottomOf="@+id/companyNameTv" />
 
@@ -51,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/company_lbl"
+            android:text="@string/shoe_company_lbl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameText" />
 
@@ -61,7 +69,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="number|numberDecimal"
+            android:text="@={viewModel.shoeSize}"
             app:layout_constraintStart_toStartOf="@+id/shoeSizeTv"
             app:layout_constraintTop_toBottomOf="@+id/shoeSizeTv" />
 
@@ -84,6 +93,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:ems="10"
+            android:text="@={viewModel.shoeDesc}"
             android:gravity="start|top"
             android:inputType="textMultiLine"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
