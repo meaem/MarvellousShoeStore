@@ -4,16 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import udacity.fwd.project1solution.databinding.FragmentWelcomeBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [WelcomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class WelcomeFragment : Fragment() {
 
 
@@ -22,11 +17,7 @@ class WelcomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-       // return inflater.inflate
-        val binding = DataBindingUtil.inflate<FragmentWelcomeBinding>(
-            inflater, R.layout.fragment_welcome, container, false
-        )
-
+        val binding = FragmentWelcomeBinding.inflate(inflater, container, false)
 
         binding.proceedBtn.setOnClickListener {
             findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment())

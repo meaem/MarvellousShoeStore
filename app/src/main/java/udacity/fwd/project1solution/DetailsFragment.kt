@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -12,11 +11,7 @@ import androidx.navigation.fragment.findNavController
 import udacity.fwd.project1solution.databinding.FragmentDetailsBinding
 import udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DetailsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class DetailsFragment : Fragment() {
     val viewModel by activityViewModels<ShoeViewModel>()
 
@@ -25,13 +20,7 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentDetailsBinding>(
-            inflater,
-            R.layout.fragment_details,
-            container,
-            false
-        )
-
+        val binding = FragmentDetailsBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel //.shoe.value
 
         viewModel.nameError.observe(viewLifecycleOwner, Observer {

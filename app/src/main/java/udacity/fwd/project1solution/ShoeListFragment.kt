@@ -13,11 +13,6 @@ import udacity.fwd.project1solution.databinding.ListItemBinding
 import udacity.fwd.project1solution.models.Shoe
 import udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel
 
-/*
- * A simple [Fragment] subclass.
- * Use the [ShoeListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ShoeListFragment : Fragment() {
 
     val viewModel by activityViewModels<ShoeViewModel>()
@@ -26,12 +21,7 @@ class ShoeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentShoeListBinding>(
-            inflater,
-            R.layout.fragment_shoe_list,
-            container,
-            false
-        )
+        val binding = FragmentShoeListBinding.inflate(inflater, container, false)
 
         binding.viewModel = viewModel
         binding.goDetailsFab.setOnClickListener {
