@@ -132,6 +132,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:text="@string/save_btn" />
 
                 <Button
@@ -139,6 +140,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
+                    android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/cancel_btn" />
             </LinearLayout>

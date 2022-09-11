@@ -50,6 +50,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:orientation="horizontal"
                     android:visibility="@{viewModel.shoeList.isEmpty() ?  View.GONE : View.VISIBLE}">
 
@@ -57,29 +58,40 @@
                         android:id="@+id/name_header"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:layout_weight="1"
-                        android:text="@string/shoe_name_lbl" />
+                        android:gravity="center_horizontal"
+                        android:text="@string/shoe_name_lbl"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/company_header"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
                         android:layout_weight="1"
-                        android:text="@string/shoe_company_lbl" />
+                        android:gravity="center_horizontal"
+                        android:text="@string/shoe_company_lbl"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/size_header"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
                         android:layout_weight="1"
-                        android:text="@string/shoe_size_lbl" />
+                        android:gravity="center_horizontal"
+                        android:text="@string/shoe_size_lbl"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/no_shoes_messgae"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="128dp"
                     android:layout_weight="1"
                     android:gravity="center"
