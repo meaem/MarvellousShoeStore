@@ -2,7 +2,6 @@ package udacity.fwd.project1solution
 
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -10,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import timber.log.Timber
 import udacity.fwd.project1solution.databinding.FragmentShoeListBinding
+import udacity.fwd.project1solution.databinding.ListItemBinding
 import udacity.fwd.project1solution.models.Shoe
 import udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel
 
@@ -55,11 +55,16 @@ class ShoeListFragment : Fragment() {
             for (shoe in list) {
 //            if (list.isNotEmpty()) {
 //                val shoe = list.last()
-                val tv =
-                    View.inflate(this@ShoeListFragment.activity, R.layout.list_item, null)
-                tv.findViewById<TextView>(R.id.name_textView).text = shoe.name
-                tv.findViewById<TextView>(R.id.company_textView).text = shoe.company
-                tv.findViewById<TextView>(R.id.size_textView).text = shoe.size.toString()
+                val tv = DataBindingUtil.inflate<ListItemBinding>(
+                    layoutInflater,
+                    R.layout.list_item,
+                    null,
+                    false
+                )
+//                    View.inflate(this@ShoeListFragment.activity, R.layout.list_item, null)
+                tv.nameTextView.text = shoe.name
+                tv.companyTextView.text = shoe.company
+                tv.sizeTextView.text = shoe.size.toString()
 //                val tv_binding = DataBindingUtil.inflate<FragmentShoeListBinding>(
 //                    inflater,
 //                    R.layout.fragment_shoe_list,
@@ -68,7 +73,7 @@ class ShoeListFragment : Fragment() {
 //                )
 
 //                tv.text = shoe.name
-                listLayout.addView(tv)
+                listLayout.addView(tv.root)
 //            }
             }
         }
