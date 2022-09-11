@@ -5,9 +5,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Shoe(
-    val name: String = "",
-    val size: Double? = null,
-    val company: String = "",
-    val description: String = "",
-    val images: List<String> = mutableListOf()
+    var name: String = "",
+    var size: Double? = null,
+    var company: String = "",
+    var description: String = "",
+    var images: List<String> = mutableListOf()
 ) : Parcelable

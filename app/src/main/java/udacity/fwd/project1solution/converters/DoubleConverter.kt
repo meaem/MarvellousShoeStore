@@ -3,7 +3,7 @@ package udacity.fwd.project1solution.converters
 import androidx.databinding.InverseMethod
 
 object DoubleConverter {
-    @InverseMethod("stringToDate")
+    @InverseMethod("stringToDouble")
     @JvmStatic
     fun doubleToString(
         value: Double?

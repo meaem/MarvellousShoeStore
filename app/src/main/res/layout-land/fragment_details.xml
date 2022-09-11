@@ -5,12 +5,11 @@
 
     <data>
 
+        <import type="udacity.fwd.project1solution.converters.DoubleConverter" />
+
         <variable
-            name="viewModel"
-            type="udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel" />
-        <!--        <variable-->
-        <!--            name="shoe"-->
-        <!--            type="udacity.fwd.project1solution.models.Shoe" />-->
+            name="shoe"
+            type="udacity.fwd.project1solution.models.Shoe" />
     </data>
 
     <LinearLayout
@@ -35,9 +34,9 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/shoe_name_lbl"
                 app:layout_constraintBottom_toTopOf="@+id/shoeNameText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.49" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.49" />
 
             <EditText
                 android:id="@+id/shoeNameText"
@@ -47,7 +46,7 @@
 
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="@={viewModel.shoeName}"
+                android:text="@={shoe.name}"
                 app:layout_constraintBottom_toTopOf="@+id/companyNameTv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -62,7 +61,7 @@
                 android:ems="10"
 
                 android:inputType="textPersonName"
-                android:text="@={viewModel.comapnyName}"
+                android:text="@={shoe.company}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,23 +87,23 @@
                 android:ems="10"
 
                 android:inputType="number|numberDecimal"
-                android:text="@={viewModel.shoeSize}"
+                android:text="@={DoubleConverter.doubleToString(shoe.size)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shoeSizeTv" />
 
-        <TextView
-            android:id="@+id/shoeSizeTv"
-            style="@style/font_style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/shoe_size_lbl"
-            app:layout_constraintBottom_toTopOf="@+id/shoeSizeText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/companyNameText" />
+            <TextView
+                android:id="@+id/shoeSizeTv"
+                style="@style/font_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/shoe_size_lbl"
+                app:layout_constraintBottom_toTopOf="@+id/shoeSizeText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/companyNameText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -156,7 +155,7 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
-                android:text="@={viewModel.shoeDesc}"
+                android:text="@={shoe.description}"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

@@ -5,12 +5,12 @@
 
     <data>
 
+        <import type="udacity.fwd.project1solution.converters.DoubleConverter" />
+
         <variable
-            name="viewModel"
-            type="udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel" />
-        <!--        <variable-->
-        <!--            name="shoe"-->
-        <!--            type="udacity.fwd.project1solution.models.Shoe" />-->
+            name="shoe"
+            type="udacity.fwd.project1solution.models.Shoe" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +38,7 @@
             android:layout_marginTop="9dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={viewModel.shoeName}"
+            android:text="@={shoe.name}"
             app:layout_constraintStart_toStartOf="@+id/shoeNameTv"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameTv" />
 
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={viewModel.comapnyName}"
+            android:text="@={shoe.company}"
             app:layout_constraintStart_toStartOf="@+id/companyNameTv"
             app:layout_constraintTop_toBottomOf="@+id/companyNameTv" />
 
@@ -70,7 +70,7 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:inputType="number|numberDecimal"
-            android:text="@={viewModel.shoeSize}"
+            android:text="@={DoubleConverter.doubleToString(shoe.size)}"
             app:layout_constraintStart_toStartOf="@+id/shoeSizeTv"
             app:layout_constraintTop_toBottomOf="@+id/shoeSizeTv" />
 
@@ -93,9 +93,9 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:ems="10"
-            android:text="@={viewModel.shoeDesc}"
             android:gravity="start|top"
             android:inputType="textMultiLine"
+            android:text="@={shoe.description}"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
