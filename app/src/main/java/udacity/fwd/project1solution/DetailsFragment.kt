@@ -18,27 +18,19 @@ import udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel
 
 class DetailsFragment : Fragment() {
     val viewModel by activityViewModels<ShoeViewModel>()
-
+    lateinit var binding: FragmentDetailsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        val binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        binding = FragmentDetailsBinding.inflate(inflater, container, false)
         binding.shoe = viewModel.shoe //.shoe.value
 
-        viewModel.nameError.observe(viewLifecycleOwner, Observer {
-            binding.shoeNameText.error = getErrorMessageString(it)
-        })
+        viewModel.addError.observe(viewLifecycleOwner, Observer {
+            resetErrors()
 
-        viewModel.companyError.observe(viewLifecycleOwner, Observer {
-            binding.companyNameText.error = getErrorMessageString(it)
-        })
-        viewModel.sizeError.observe(viewLifecycleOwner, Observer {
-            binding.shoeSizeText.error = getErrorMessageString(it)
-        })
-        viewModel.descError.observe(viewLifecycleOwner, Observer {
-            binding.shoeDescText.error = getErrorMessageString(it)
+            getErrorMessageString(it)
         })
 
 
@@ -58,12 +50,30 @@ class DetailsFragment : Fragment() {
         return binding.root
     }
 
-    private fun getErrorMessageString(err: ShoeDataError?): String? {
-        if (err == null) return null
+    private fun resetErrors() {
+        val editTexts = setOf(
+            binding.shoeNameText,
+            binding.companyNameText,
+            binding.shoeSizeText,
+            binding.shoeDescText
+        )
+        for (et in editTexts) {
+            et.error = null
+        }
+    }
+
+    private fun getErrorMessageString(err: ShoeDataError?) {
+        if (err == null) return resetErrors()
         return when (err) {
-            ShoeDataError.CAN_NOT_BE_BLANK -> getString(R.string.can_not_be_blank_error)
-            ShoeDataError.LARGE_TEXT -> getString(R.string.text_large_error, MAX_LENGTH)
-            ShoeDataError.NOT_IN_ALLOWED_RANGE -> getString(
+            ShoeDataError.NAME_CAN_NOT_BE_BLANK -> binding.shoeNameText.error =
+                getString(R.string.can_not_be_blank_error)
+            ShoeDataError.COMPANY_CAN_NOT_BE_BLANK -> binding.companyNameText.error =
+                getString(R.string.can_not_be_blank_error)
+            ShoeDataError.SIZE_CAN_NOT_BE_BLANK -> binding.shoeSizeText.error =
+                getString(R.string.can_not_be_blank_error)
+            ShoeDataError.DESC_LARGE_TEXT -> binding.shoeDescText.error =
+                getString(R.string.text_large_error, MAX_LENGTH)
+            ShoeDataError.SIZE_NOT_IN_ALLOWED_RANGE -> binding.shoeSizeText.error = getString(
                 R.string.incorrect_size_error,
                 MIN_SHOE_SIZE, MAX_SHOE_SIZE
             )

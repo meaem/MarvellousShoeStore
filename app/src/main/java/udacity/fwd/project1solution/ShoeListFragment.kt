@@ -2,7 +2,6 @@ package udacity.fwd.project1solution
 
 import android.os.Bundle
 import android.view.*
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -24,6 +23,7 @@ class ShoeListFragment : Fragment() {
         val binding = FragmentShoeListBinding.inflate(inflater, container, false)
 
         binding.viewModel = viewModel
+
         binding.goDetailsFab.setOnClickListener {
             findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToDetailsFragment())
         }
@@ -41,30 +41,12 @@ class ShoeListFragment : Fragment() {
         Timber.i(list.toString())
 
         binding.apply {
-//            listLayout.removeAllViews()
             for (shoe in list) {
-//            if (list.isNotEmpty()) {
-//                val shoe = list.last()
-                val tv = DataBindingUtil.inflate<ListItemBinding>(
-                    layoutInflater,
-                    R.layout.list_item,
-                    null,
-                    false
-                )
-//                    View.inflate(this@ShoeListFragment.activity, R.layout.list_item, null)
+                val tv = ListItemBinding.inflate(layoutInflater, null, false)
                 tv.nameTextView.text = shoe.name
                 tv.companyTextView.text = shoe.company
                 tv.sizeTextView.text = shoe.size.toString()
-//                val tv_binding = DataBindingUtil.inflate<FragmentShoeListBinding>(
-//                    inflater,
-//                    R.layout.fragment_shoe_list,
-//                    container,
-//                    false
-//                )
-
-//                tv.text = shoe.name
                 listLayout.addView(tv.root)
-//            }
             }
         }
 

@@ -12,7 +12,6 @@ import udacity.fwd.project1solution.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
-    //lateinit var binding :LoginF
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,8 +24,6 @@ class LoginFragment : Fragment() {
         }
 
 
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_login, container, false)
         return binding.root
     }
 

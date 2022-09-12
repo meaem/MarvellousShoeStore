@@ -32,23 +32,9 @@ class ShoeViewModel : ViewModel() {
         get() = _shoe
 
 
-    private val _nameError = MutableLiveData<ShoeDataError?>()
-    val nameError: LiveData<ShoeDataError?>
-        get() = _nameError
-
-
-    private val _companyError = MutableLiveData<ShoeDataError?>()
-    val companyError: LiveData<ShoeDataError?>
-        get() = _companyError
-
-    private val _sizeError = MutableLiveData<ShoeDataError?>()
-    val sizeError: LiveData<ShoeDataError?>
-        get() = _sizeError
-
-    private val _descError = MutableLiveData<ShoeDataError?>()
-    val descError: LiveData<ShoeDataError?>
-        get() = _descError
-
+    private val _addError = MutableLiveData<ShoeDataError?>()
+    val addError: LiveData<ShoeDataError?>
+        get() = _addError
 
     fun addShoe() {
 
@@ -66,35 +52,33 @@ class ShoeViewModel : ViewModel() {
         shoe: Shoe
     ): Boolean {
         if (shoe.name.isBlank()) {
-            _nameError.value = ShoeDataError.CAN_NOT_BE_BLANK
+            _addError.value = ShoeDataError.NAME_CAN_NOT_BE_BLANK
             return false
         } else {
-            _nameError.value = null
+            _addError.value = null
         }
         if (shoe.company.isBlank()) {
-            _companyError.value = ShoeDataError.CAN_NOT_BE_BLANK
+            _addError.value = ShoeDataError.COMPANY_CAN_NOT_BE_BLANK
             return false
         } else {
-            _companyError.value = null
+            _addError.value = null
         }
         if (shoe.size == null) {
-            _sizeError.value = ShoeDataError.CAN_NOT_BE_BLANK
+            _addError.value = ShoeDataError.SIZE_CAN_NOT_BE_BLANK
             return false
         } else {
             if (shoe.size?.roundToInt() !in MIN_SHOE_SIZE..MAX_SHOE_SIZE) {
-                _sizeError.value = ShoeDataError.NOT_IN_ALLOWED_RANGE
-//                    String.format( "valid sizes between %d and %d only", MIN_SHOE_SIZE,MAX_SHOE_SIZE)
+                _addError.value = ShoeDataError.SIZE_NOT_IN_ALLOWED_RANGE
                 return false
             } else {
-                _sizeError.value = null
+                _addError.value = null
             }
         }
         if (shoe.description.isNotBlank() && shoe.description.length > MAX_LENGTH) {
-            _descError.value = ShoeDataError.LARGE_TEXT
-//                String.format("Description charaters should not exceed %d characters", MAX_LENGTH )
+            _addError.value = ShoeDataError.DESC_LARGE_TEXT
             return false
         } else {
-            _descError.value = null
+            _addError.value = null
         }
 
 
@@ -102,11 +86,7 @@ class ShoeViewModel : ViewModel() {
     }
 
     fun onAddCanceled() {
-        _nameError.value = null
-        _companyError.value = null
-        _sizeError.value = null
-        _descError.value = null
-
+        _addError.value = null
         resetShoe()
     }
 

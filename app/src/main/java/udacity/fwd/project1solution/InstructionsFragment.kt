@@ -14,7 +14,7 @@ class InstructionsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         // Inflate the layout for this fragment
         val binding = FragmentInstructionsBinding.inflate(inflater, container, false)
@@ -22,7 +22,6 @@ class InstructionsFragment : Fragment() {
             findNavController().navigate(InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment())
         }
         return binding.root
-//        FragmentInstructionsBinding.
     }
 
 }
