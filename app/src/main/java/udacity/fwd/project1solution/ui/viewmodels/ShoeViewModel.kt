@@ -8,9 +8,9 @@ import udacity.fwd.project1solution.models.Shoe
 import udacity.fwd.project1solution.ui.enums.ShoeDataError
 import kotlin.math.roundToInt
 
-val MIN_SHOE_SIZE = 30
-val MAX_SHOE_SIZE = 60
-val MAX_LENGTH = 200
+const val MIN_SHOE_SIZE = 30
+const val MAX_SHOE_SIZE = 60
+const val MAX_LENGTH = 200
 
 class ShoeViewModel : ViewModel() {
 

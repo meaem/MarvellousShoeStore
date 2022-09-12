@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import timber.log.Timber
 import udacity.fwd.project1solution.databinding.FragmentShoeListBinding
@@ -14,7 +13,7 @@ import udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel
 
 class ShoeListFragment : Fragment() {
 
-    val viewModel by activityViewModels<ShoeViewModel>()
+    private val viewModel by activityViewModels<ShoeViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,11 +27,12 @@ class ShoeListFragment : Fragment() {
             findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToDetailsFragment())
         }
 
-        viewModel.shoeList.observe(viewLifecycleOwner, Observer {
+        viewModel.shoeList.observe(viewLifecycleOwner) {
             addShoesToView(binding, it)
-        })
+        }
 
 
+        @Suppress("DEPRECATION")
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -53,13 +53,17 @@ class ShoeListFragment : Fragment() {
     }
 
 
+    @Suppress("DEPRECATION")
+    @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.list_menu, menu)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
+        @Suppress("DEPRECATION")
         return when (item.itemId) {
             R.id.menu_logout -> {
                 findNavController().navigate(ShoeListFragmentDirections.actionGraphShoeListFragmentToGraphLoginFragment())

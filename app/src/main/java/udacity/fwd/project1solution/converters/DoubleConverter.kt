@@ -18,10 +18,10 @@ object DoubleConverter {
     ): Double? {
         // Converts String to double.
         if (value.isBlank()) return null
-        try {
-            return value.toDouble()
+        return try {
+            value.toDouble()
         } catch (ex: NumberFormatException) {
-            return null
+            null
         }
     }
 }

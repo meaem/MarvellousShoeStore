@@ -34,7 +34,7 @@
     <string name="email_hint">user@example.com</string>
     <string name="incorrect_size_error">valid sizes between %d and %d only</string>
     <string name="can_not_be_blank_error">can not be blank</string>
-    <string name="text_large_error">charaters should not exceed %d characters</string>
+    <string name="text_large_error">characters should not exceed %d character(s)</string>
     <string name="no_shoes_currently_in_the_store">No shoes currently in the store. Please Click the add button to add shoes</string>
     <string name="read_instructions">Read Instructions</string>
 

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import udacity.fwd.project1solution.databinding.FragmentDetailsBinding
 import udacity.fwd.project1solution.ui.enums.ShoeDataError
@@ -17,7 +16,7 @@ import udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel
 
 
 class DetailsFragment : Fragment() {
-    val viewModel by activityViewModels<ShoeViewModel>()
+    private val viewModel by activityViewModels<ShoeViewModel>()
     lateinit var binding: FragmentDetailsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,19 +26,19 @@ class DetailsFragment : Fragment() {
         binding = FragmentDetailsBinding.inflate(inflater, container, false)
         binding.shoe = viewModel.shoe //.shoe.value
 
-        viewModel.addError.observe(viewLifecycleOwner, Observer {
+        viewModel.addError.observe(viewLifecycleOwner) {
             resetErrors()
 
             getErrorMessageString(it)
-        })
+        }
 
 
-        viewModel.added.observe(viewLifecycleOwner, Observer {
+        viewModel.added.observe(viewLifecycleOwner) {
             if (it) {
                 findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToShoeListFragment())
                 viewModel.onAddComplete()
             }
-        })
+        }
 
         binding.cancelBtn.setOnClickListener {
             findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToShoeListFragment())
