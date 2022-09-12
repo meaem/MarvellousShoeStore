@@ -12,7 +12,10 @@
             type="udacity.fwd.project1solution.ui.viewmodels.ShoeViewModel" />
 
     </data>
-
+    <!--
+    This  fragment has complex layout. Also it has views that change their visibility.
+    It is a mix of Linear layouts and constraint layout to simplify the layout hierarchy
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

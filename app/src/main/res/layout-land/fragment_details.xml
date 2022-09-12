@@ -11,7 +11,10 @@
             name="shoe"
             type="udacity.fwd.project1solution.models.Shoe" />
     </data>
-
+    <!--
+    Linear (Horizontal) layout to split the screen into two horizontal folds each has a group
+    of views under a constraint layout
+    -->
     <LinearLayout
         android:id="@+id/details_layout"
         android:layout_width="match_parent"

@@ -15,7 +15,10 @@
     <string name="logo_description">logo_description</string>
     <string name="welcome_to_our_shoe_store">Welcome to our Shoe Store</string>
     <string name="go">Go</string>
-    <string name="instructions_content">Please follow the following instructions to enjoy a good buying experience</string>
+    <string name="instructions_content">Please follow the following instructions to enjoy a good buying experience:\n
+    In the next screen click on the add button to go to Details Screen\n
+    Enter new Shoe details. After saving it, will be displayed on the list\n
+    Happy visit !!</string>
     <string name="instructions_label">Instructions</string>
     <string name="btn_details_desc">Go to details screen</string>
     <string name="shoes_list">Shoes list</string>
@@ -37,5 +40,6 @@
     <string name="text_large_error">characters should not exceed %d character(s)</string>
     <string name="no_shoes_currently_in_the_store">No shoes currently in the store. Please Click the add button to add shoes</string>
     <string name="read_instructions">Read Instructions</string>
+    <string name="logout">Logout</string>
 
 </resources>
