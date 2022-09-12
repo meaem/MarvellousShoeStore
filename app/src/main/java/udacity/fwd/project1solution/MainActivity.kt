@@ -10,6 +10,15 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import timber.log.Timber
 import udacity.fwd.project1solution.databinding.ActivityMainBinding
 
+/*
+* I declare that I used both the following images from the following links.
+* Because I do not know where to attribute both images, I added the attribution here.
+*
+*
+* https://flyclipart.com/downloadpage/images/shoe-shop-pos-software-in-bangladesh-300405.png/300405
+* https://www.svgrepo.com/download/196305/shoe.svg
+*
+* */
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
