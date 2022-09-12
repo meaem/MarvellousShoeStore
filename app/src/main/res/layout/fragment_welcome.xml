@@ -69,13 +69,13 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:contentDescription="@string/logo_description"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread"
-            android:contentDescription="@string/logo_description"
-            app:srcCompat="@mipmap/welcome" />
+            app:srcCompat="@mipmap/ic_banner_foreground" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
